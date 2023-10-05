@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django ブログ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    {% load static %}
+    <link rel="preload" as="image" href="{% static 'images/jellyfish.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/each.css' %}">
+
+</head>
+<body>
+    <!-- この記述でなぜ画面遷移できるのか不明だが、後学の為に残しておく -->
+    <!-- <nav class="navbar is-danger">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                <strong>プログラミングチュートリアル</strong>
+            </a>
+        </div>
+    </nav> -->
+    <!-- \\\\\\\\\\\\\ここまで\\\\\\\\\\\\\\\ -->
+    <section class="section">
+        <div class="container">
+        </div>
+    </section>
+
+    <header class="header">
+        <!-- ハンバーガーメニュー -->
+        <button id="js-hamburger" class="hamburger"><span class="hamburger__line"></span></button>
+        <!-- メニュー -->
+        <nav id="js-globalnav" class="globalnav">
+         <ul class="globalnav__main">
+          <li class="globalnav__item"><a href="#js-main">Top</a></li>
+          <li class="globalnav__item"><a href="#information">Information</a>
+          <li class="globalnav__item"><a href="#Change log">Change log</a></li>
+          <li class="globalnav__item"><a href="#topic">Topic</a></li>
+          <li class="globalnav__item"><a href="#about">About</a></li>
+          <li class="globalnav__item"><a href="#profile">Profile</a></li>
+         </ul>
+        </nav><!-- メニューここまで -->
+       </header>
+      
+       <!-- メインコンテンツ -->
+       <main class="mainwrapper" id="js-main">
+      
+        <!-- サイト名 -->
+        <h1 class="sitename titles">Jelly Fish</h1>
+      
+        <section id="information">
+         <!-- インフォメーション -->
+         <h2 class="headingL">Information</h2>
+         <p class="bg-white">クラゲ（Jellyfish）は、海洋に生息する無脊椎動物の一群で、その特徴的なゼリー状の体と刺胞を持っています。<br>
+        クラゲの一般的な特徴: <br>
+        １．ゼリー状の体: クラゲは透明なゼリー状の体を持ち、通常は優雅に浮遊しています。このゼリー状の体は、水中で泳ぐための浮力を提供します。<br>
+        ２．刺胞: クラゲの触手には刺胞（cnidocytes）と呼ばれる特殊な細胞があり、獲物を捕らえるために使用されます。刺胞から毒液が放出され、獲物を麻痺させたり捕らえたりします。<br>
+        ３．独特の運動: クラゲは遅い動きで泳ぎますが、風に流されることもあります。一部のクラゲは自身の筋肉を使って泳ぐ能力を持っています。<br>
+        ４．生息環境: クラゲは世界中の海洋に広く分布しており、深海から浅瀬までさまざまな環境に生息します。
+         </p>
+         <!-- 更新履歴 -->
+         <section class="bg-white" id="Change log">
+          <h3 class="headingM">更新履歴</h3>
+          <ul class="update">
+           <li class="update__item"><time>2023/09/28</time><span>完成しました</span></li>
+           <li class="update__item"><time>2023/09/27</time><span>それなりに形になってきてる</span></li>
+           <li class="update__item"><time>2023/09/27</time><span>ここはデータベース構造になってないリスト</span></li>
+           <li class="update__item"><time>20XX/XX/XX</time><span>更新内容を記載してください</span></li>
+           <li class="update__item"><time>20XX/XX/XX</time><span>更新内容を記載してください</span></li>
+          </ul><!-- 更新履歴ここまで -->
+         </section>
+        </section><!-- インフォメーションここまで -->
+      
+        <!--トピック一覧-->
+        <section id="topic">
+         <h2 class="headingL">Topic</h2>
+         {% block content %} 
+         
+         {% endblock %}
+        </section>
+        <!--トピック一覧ここまで-->
+      
+        <!-- アバウト -->
+        <section id="about">
+         <h2 class="headingL">About</h2>
+         <!-- このサイトについて -->
+         <section class="aboutsite bg-white">
+          <h3 class="headingM">About this site</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi aperiam natus labore. Iure saepe nemo quod!
+           Tempore deserunt aperiam aliquam deleniti id explicabo quo, mollitia magni! Consequatur magni id debitis.</p>
+          <dl class="gridlist">
+           <dt class="gridlist__label">Site name</dt>
+           <dd class="gridlist__text">サイト名</dd>
+           <dt class="gridlist__label">Master</dt>
+           <dd class="gridlist__text">おなまえ</dd>
+           <dt class="gridlist__label">URL</dt>
+           <dd class="gridlist__text">https://～</dd>
+          </dl>
+         </section><!-- このサイトについてここまで -->
+         <section class="profile bg-white">
+          <!-- プロフィール -->
+          <h3 class="headingM">Profile</h3>
+          <div class="profile__inner grid">
+           <!-- 横並びに -->
+           <!-- プロフィール画像 -->
+           <div class="profile__img" id="profile"><img src="{% static 'images/image_12.png' %}" alt=""></div>
+           <!-- プロフィール文章 -->
+           <div class="profile__text">
+            <p>こんにちは、私は長年にわたりクラゲの研究に情熱を傾けてきたクラゲの研究者です。<br>
+
+                私のキャリアはクラゲの生態学、行動学、および生態系への影響に焦点を当てています。クラゲは私にとって魅力的な生物であり、その多様性と複雑性に常に驚かされています。<br>
+                
+                クラゲについての研究において、私は広範なフィールドワークと実験を行ってきました。海洋での観察や水槽内での実験を通じて、クラゲの生態系での役割や相互作用を理解し、その環境への影響を調査しています。<br>
+                
+                私の研究において、新種の発見やクラゲの生態に関する新しい知見を得ることに成功してきました。また、環境保護の観点から、クラゲの生息地を守るための提言や戦略を開発するためにも取り組んでいます。<br>
+                
+                私はクラゲについての情熱と熱意を持ち、その研究を通じて私たちの自然環境の保護と持続可能性に貢献できることを楽しみにしています。クラゲの不思議な世界を探求し、共に学び続ける旅に参加していただければ幸いです。</p>
+            <!-- SNSリスト -->
+            <ul class="snslist flex">
+             <li class="snslist__item twitter"><a href="#js-main"><i class="lab la-twitter"></i></a></li>
+             <li class="snslist__item instagram"><a href="#information"><i class="lab la-instagram"></i></a></li>
+             <li class="snslist__item facebook"><a href="#Change log"><i class="lab la-facebook-square"></i></a></li>
+             <li class="snslist__item youtube"><a href="#topic"><i class="lab la-youtube"></i></a></li>
+            </ul><!-- SNSリストここまで -->
+           </div><!-- プロフィール文章ここまで -->
+          </div>
+         </section><!-- プロフィールここまで -->
+        </section>
+        <!-- アバウトここまで -->
+      
+      
+        <!-- リンク -->
+        <!-- <section id="link">
+         <h2 class="headingL">Link</h2>
+         <section class="bg-white">
+          <h3 class="headingM">Favorite</h3>
+          <ul class="linklist flex">
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+           <li class="linklist__item"><a href=""><img src="http://placehold.jp/200x40.png?text=バナー" alt=""></a></li>
+          </ul>
+         </section>
+         <section class="bg-white">
+          <h3 class="headingM">Thanks</h3>
+          <ul class="linklist flex">
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+           <li class="linklist__item"><a href="">テキストリンク</a></li>
+          </ul>
+         </section>
+        </section> -->
+        <!-- リンクここまで -->
+      
+        <!-- コンタクト -->
+        <section id="contact">
+         <h2 class="headingL">Contact</h2>
+         <form action="" method="post" class="mailform">
+          <input id="name" type="text" name="Name" placeholder="お名前"><br>
+          <input id="mail" type="email" name="Mail" placeholder="メールアドレス"><br>
+          <input id="url" type="url" name="URL" placeholder="URL"><br>
+          <textarea id="message" name="Message" placeholder="メッセージ"></textarea><br>
+          <button class="btn">送信</button>
+         </form>
+        </section>
+        <!-- コンタクトここまで -->
+      
+       </main><!-- メインコンテンツここまで -->
+      
+      
+       <footer>
+        <!-- クレジット -->
+        <small>© 20xx Your site name. Designed by <a href="https://utsusemi.hiroec.com" target="_blank">Utsusemi</a>.</small>
+        <!-- クレジットここまで -->
+       </footer>
+</body>
+</html>
